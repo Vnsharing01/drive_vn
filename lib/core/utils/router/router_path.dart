@@ -1,0 +1,11 @@
+class RouterPath {
+  static const String splash = '/splash';
+  
+  static const String home = '/home';
+  static const String settings = '/settings';
+
+  static const String practice = '/practice';
+  static const String training = '/training';
+  static const String history = '/history';
+  static const String review = '/review';
+}
