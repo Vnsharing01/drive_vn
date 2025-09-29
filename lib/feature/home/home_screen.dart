@@ -1,5 +1,5 @@
-import 'package:drive_vn/core/constants/app_color.dart';
-import 'package:drive_vn/core/constants/icon_path.dart';
+import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/core/constants/icon_path.dart';
 import 'package:flutter/material.dart';
 
 import 'components/home_feature_widget.dart';
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Chào mừng bạn đến với DriveVN',
+                      'Chào mừng bạn đến với drivevn',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

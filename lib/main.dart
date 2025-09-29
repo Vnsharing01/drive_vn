@@ -1,4 +1,4 @@
-import 'package:drive_vn/feature/home/home_page.dart';
+import 'package:drivevn/feature/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DriveVN',
+      title: 'drivevn',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

@@ -1,7 +1,7 @@
-import 'package:drive_vn/core/constants/app_color.dart';
-import 'package:drive_vn/core/constants/icon_path.dart';
-import 'package:drive_vn/feature/home/home_screen.dart';
-import 'package:drive_vn/feature/setting/setting_screen.dart';
+import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/core/constants/icon_path.dart';
+import 'package:drivevn/feature/home/home_screen.dart';
+import 'package:drivevn/feature/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

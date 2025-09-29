@@ -1,4 +1,4 @@
-import 'package:drive_vn/core/constants/app_color.dart';
+import 'package:drivevn/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
 class ItemBannerWidget extends StatelessWidget {

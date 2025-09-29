@@ -1,14 +1,13 @@
-import 'package:drive_vn/core/constants/app_color.dart';
+import 'package:drivevn/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
 class HomeFeatureWidget extends StatelessWidget {
-  const HomeFeatureWidget({
-    super.key,
-    required this.title,
-    required this.subTitle,
-    required this.icon,
-    this.onTap
-  });
+  const HomeFeatureWidget(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.icon,
+      this.onTap});
 
   final String title;
   final String subTitle;
