@@ -1,4 +1,4 @@
-import 'package:drivevn/feature/home/home_page.dart';
+import 'package:drivevn/core/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'drivevn',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      
+      routerConfig: AppRouter().appRouter,
     );
   }
 }

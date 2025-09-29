@@ -6,5 +6,6 @@ class AppColor {
   static const Color background = Color(0xFFFFFFFF);
   static const Color topBanner = Color(0xFFEFEFEF);
   static const Color textPrimary = Color(0xFF212529);
+  static const Color textWhite = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFF6C757D);
 }

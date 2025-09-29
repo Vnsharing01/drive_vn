@@ -1,9 +1,12 @@
 import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
+import 'package:drivevn/core/utils/router/router_path.dart';
+import 'package:drivevn/feature/home/components/home_feature_widget.dart';
+import 'package:drivevn/feature/home/components/item_banner_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import 'components/home_feature_widget.dart';
-import 'components/item_banner_widget.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColor.background,
+        // backgroundColor: AppColor.background,
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
@@ -112,7 +115,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: 'Thi thử',
                     subTitle: '25 câu ngẫu nhiên',
                     icon: IconPath.thiThu,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(RouterPath.practiceStart);
+                    },
                   ),
                   HomeFeatureWidget(
                     title: 'Ôn lại',
