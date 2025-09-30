@@ -121,7 +121,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: 'Ôn lại',
                     subTitle: 'Câu đã sai',
                     icon: IconPath.onLai,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(RouterPath.review);
+                    },
                   ),
                   HomeFeatureWidget(
                     title: 'Lịch sử',

@@ -1,4 +1,5 @@
 import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:flutter/material.dart';
 
 class PractiveStartScreen extends StatefulWidget {
@@ -68,37 +69,10 @@ class _PractiveStartScreenState extends State<PractiveStartScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              InkWell(
+              ButtonFill(
+                title: 'Bắt đầu thi thử',
+                color: AppColor.primary,
                 onTap: () {},
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                    color: AppColor.primary,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColor.textPrimary.withOpacity(0.5),
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  child: const Text(
-                    "Bắt đầu thi",
-                    style: TextStyle(
-                      color: AppColor.textWhite,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
               ),
             ],
           ),
