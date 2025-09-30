@@ -6,8 +6,6 @@ import 'package:drivevn/feature/home/components/item_banner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -129,7 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: 'Lịch sử',
                     subTitle: 'Lịch sử làm bài',
                     icon: IconPath.lichSu,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(RouterPath.history);
+                    },
                   ),
                 ],
               )
