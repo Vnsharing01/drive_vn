@@ -17,7 +17,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           title: const Text(
             'Lịch sử',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),

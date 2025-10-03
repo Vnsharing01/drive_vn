@@ -20,7 +20,7 @@ class HomeFeatureWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       onTap: onTap,
       child: Card.outlined(
-        elevation: 1,
+        elevation: 2,
         color: AppColor.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

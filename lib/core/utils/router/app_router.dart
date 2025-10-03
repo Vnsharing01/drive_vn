@@ -1,5 +1,6 @@
 import 'package:drivevn/core/utils/router/router_path.dart';
 import 'package:drivevn/feature/history/history_screen.dart';
+import 'package:drivevn/feature/home/home_page/home_page.dart';
 import 'package:drivevn/feature/home/home_screen/home_screen.dart';
 import 'package:drivevn/feature/practice/practive_finish.dart/practive_finish_screen.dart';
 import 'package:drivevn/feature/practice/practive_screen.dart/practice_screen.dart';
@@ -11,6 +12,10 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   final GoRouter appRouter = GoRouter(routes: [
+    GoRoute(
+      path: RouterPath.homePage,
+      builder: (context, state) => const HomePage(),
+    ),
     GoRoute(
       path: RouterPath.home,
       builder: (context, state) => const HomeScreen(),

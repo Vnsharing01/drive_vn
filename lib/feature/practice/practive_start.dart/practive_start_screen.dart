@@ -18,7 +18,7 @@ class _PractiveStartScreenState extends State<PractiveStartScreen> {
           title: const Text(
             "Bắt đầu thi thử",
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -42,7 +42,7 @@ class _PractiveStartScreenState extends State<PractiveStartScreen> {
                         'Đề thi sát hạch',
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
                       ),

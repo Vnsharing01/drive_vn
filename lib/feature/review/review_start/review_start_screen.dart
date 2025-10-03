@@ -19,7 +19,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
           title: const Text(
             "Bắt đầu thi thử",
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -45,7 +45,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                         'Tổng quan',
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
                       ),

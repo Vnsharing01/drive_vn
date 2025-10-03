@@ -107,7 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: 'Luyện tập',
                     subTitle: 'Luyện theo chủ đề',
                     icon: IconPath.luyentap,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(RouterPath.training);
+                    },
                   ),
                   HomeFeatureWidget(
                     title: 'Thi thử',

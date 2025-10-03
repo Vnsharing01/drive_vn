@@ -28,8 +28,8 @@ class ButtonFill extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: AppColor.textPrimary.withOpacity(0.5),
-              blurRadius: 4,
-              offset: const Offset(0, 2),
+              blurRadius: 2,
+              offset: const Offset(0, 1.5),
             ),
           ],
         ),
@@ -41,7 +41,7 @@ class ButtonFill extends StatelessWidget {
           title,
           style: const TextStyle(
             color: AppColor.textWhite,
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
