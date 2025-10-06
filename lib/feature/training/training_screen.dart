@@ -58,40 +58,41 @@ class _TrainingScreenState extends State<TrainingScreen> {
             ),
             const SizedBox(height: 8),
             Expanded(
-                child: ListView(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(16),
-              children: [
-                TrainingItemWidget(
-                  title: 'Khái niệm và quy tắc giao thông',
-                  subTitle: '25 câu',
-                  icon: IconPath.justiceScale,
-                  onTap: () {},
-                ),
-                const SizedBox(height: 8),
-                TrainingItemWidget(
-                  title: 'Nghiệp vụ vận tải',
-                  subTitle: '25 câu',
-                  icon: IconPath.supplyChain,
-                  onTap: () {},
-                ),
-                const SizedBox(height: 8),
-                TrainingItemWidget(
-                  title: 'Kỹ thuật lái xe',
-                  subTitle: '25 câu',
-                  icon: IconPath.trafficLight,
-                  onTap: () {},
-                ),
-                const SizedBox(height: 8),
-                TrainingItemWidget(
-                  title: 'Biển báo đường bộ',
-                  subTitle: '25 câu',
-                  icon: IconPath.roadSign,
-                  onTap: () {},
-                ),
-              ],
-            ))
+              child: ListView(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(16),
+                children: [
+                  TrainingItemWidget(
+                    title: 'Khái niệm và quy tắc giao thông',
+                    subTitle: '25 câu',
+                    icon: IconPath.justiceScale,
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 8),
+                  TrainingItemWidget(
+                    title: 'Nghiệp vụ vận tải',
+                    subTitle: '25 câu',
+                    icon: IconPath.supplyChain,
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 8),
+                  TrainingItemWidget(
+                    title: 'Kỹ thuật lái xe',
+                    subTitle: '25 câu',
+                    icon: IconPath.trafficLight,
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 8),
+                  TrainingItemWidget(
+                    title: 'Biển báo đường bộ',
+                    subTitle: '25 câu',
+                    icon: IconPath.roadSign,
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
