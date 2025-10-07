@@ -1,6 +1,8 @@
 import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/core/utils/router/router_path.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PractiveStartScreen extends StatefulWidget {
   const PractiveStartScreen({super.key});
@@ -72,7 +74,9 @@ class _PractiveStartScreenState extends State<PractiveStartScreen> {
               ButtonFill(
                 title: 'Bắt đầu thi thử',
                 color: AppColor.primary,
-                onTap: () {},
+                onTap: () {
+                  context.push(RouterPath.practiceFinish);
+                },
               ),
             ],
           ),

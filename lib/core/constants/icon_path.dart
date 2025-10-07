@@ -9,4 +9,6 @@ class IconPath {
   static const String roadSign = 'assets/icons/road-sign.png';
   static const String supplyChain = 'assets/icons/supply-chain.png';
   static const String trafficLight = 'assets/icons/traffic-light.png';
+  static const String crying = 'assets/icons/crying.png';
+  static const String happy = 'assets/icons/happy.png';
 }

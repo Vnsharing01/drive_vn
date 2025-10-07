@@ -3,6 +3,7 @@ import 'package:drivevn/feature/history/history_screen.dart';
 import 'package:drivevn/feature/home/home_page/home_page.dart';
 import 'package:drivevn/feature/home/bloc/home_bloc.dart';
 import 'package:drivevn/feature/home/home_screen/home_screen.dart';
+import 'package:drivevn/feature/practice/practive_finish.dart/bloc/practive_finish_bloc.dart';
 import 'package:drivevn/feature/practice/practive_finish.dart/practive_finish_screen.dart';
 import 'package:drivevn/feature/practice/practive_screen.dart/practice_screen.dart';
 import 'package:drivevn/feature/practice/practive_start.dart/practive_start_screen.dart';
@@ -15,8 +16,8 @@ import 'package:go_router/go_router.dart';
 class AppRouter {
   final GoRouter appRouter = GoRouter(routes: [
     GoRoute(
-      path: RouterPath.homePage,
-       builder: (context, state) => BlocProvider(
+      path: RouterPath.main,
+      builder: (context, state) => BlocProvider(
         create: (_) => HomeBloc(),
         child: const HomePage(),
       ),
@@ -42,7 +43,10 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterPath.practiceFinish,
-      builder: (context, state) => const PractiveFinishScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (_) => PractiveFinishBloc(),
+        child: const PractiveFinishScreen(),
+      ),
     ),
     GoRoute(
       path: RouterPath.review,

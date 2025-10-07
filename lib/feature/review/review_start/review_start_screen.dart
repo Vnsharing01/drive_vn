@@ -17,7 +17,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Bắt đầu thi thử",
+            "Ôn lại",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,

@@ -9,7 +9,8 @@ class HistoryItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      elevation: 1.5,
+      elevation: 2,
+      color: AppColor.background,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
