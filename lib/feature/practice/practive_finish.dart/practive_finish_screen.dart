@@ -92,7 +92,7 @@ class _PractiveFinishScreenState extends State<PractiveFinishScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ButtonFill(
                       title: 'Về trang chủ',
-                      color: AppColor.primary,
+                      color: state.isPassed ? AppColor.primary : AppColor.error,
                       onTap: () {
                         context.go(RouterPath.main);
                       },
@@ -103,8 +103,10 @@ class _PractiveFinishScreenState extends State<PractiveFinishScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ButtonOutline(
                       title: 'Thi lại',
-                      color: AppColor.primary,
-                      onTap: () {},
+                      color: state.isPassed ? AppColor.primary : AppColor.error,
+                      onTap: () {
+                        context.push(RouterPath.practice);
+                      },
                     ),
                   ),
                 ],
