@@ -75,7 +75,7 @@ class _PractiveStartScreenState extends State<PractiveStartScreen> {
                 title: 'Bắt đầu thi thử',
                 color: AppColor.primary,
                 onTap: () {
-                  context.push(RouterPath.practiceFinish);
+                  context.go(RouterPath.practice);
                 },
               ),
             ],
