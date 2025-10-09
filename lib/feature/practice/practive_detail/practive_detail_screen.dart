@@ -1,10 +1,12 @@
 import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
+import 'package:drivevn/core/utils/router/router_path.dart';
 import 'package:drivevn/feature/practice/practive_detail/bloc/practive_detail_bloc.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:drivevn/widgets/radio/radio_answer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class PractiveDetailScreen extends StatefulWidget {
   const PractiveDetailScreen({super.key});
@@ -15,11 +17,26 @@ class PractiveDetailScreen extends StatefulWidget {
 
 class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    Future(() async {
+      if (mounted) {
+        context.read<PractiveDetailBloc>().add(const LoadQuestionsEvent());
+      }
+    });
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<PractiveDetailBloc, PractiveDetailState>(
+      child: BlocConsumer<PractiveDetailBloc, PractiveDetailState>(
+        listener: (context, state) {},
         builder: (context, state) {
-          final bloc = context.read<PractiveDetailBloc>();
           return Scaffold(
             appBar: AppBar(
               title: const Text(
@@ -30,6 +47,12 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                 ),
               ),
               centerTitle: true,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  context.go(RouterPath.main);
+                },
+              ),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerTop,
@@ -68,7 +91,8 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Biển nào cấm người đi bộ qua lại? akuihdaiuhdaoidhaoishdaoisdh saodhasoidhasodhaso dhasoiuhdaoisd',
+                            state
+                                .questions[state.currentQuestionIndex+1].question,
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 16),
@@ -84,64 +108,7 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          ListView(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            children: [
-                              RadioAnswerWidget(
-                                value: 1,
-                                groupValue: state.isSelected,
-                                onChanged: (value) {
-                                  bloc.add(
-                                    SelectedAnswerEvent(
-                                      questionIndex: 0,
-                                      answerIndex: value,
-                                    ),
-                                  );
-                                },
-                                title: 'Biển cấm người đi bộ',
-                              ),
-                              RadioAnswerWidget(
-                                value: 2,
-                                groupValue: state.isSelected,
-                                onChanged: (value) {
-                                  bloc.add(
-                                    SelectedAnswerEvent(
-                                      questionIndex: 0,
-                                      answerIndex: value,
-                                    ),
-                                  );
-                                },
-                                title: 'Biển cấm xe thô sơ',
-                              ),
-                              RadioAnswerWidget(
-                                value: 3,
-                                groupValue: state.isSelected,
-                                onChanged: (value) {
-                                  bloc.add(
-                                    SelectedAnswerEvent(
-                                      questionIndex: 0,
-                                      answerIndex: value,
-                                    ),
-                                  );
-                                },
-                                title: 'Biển cấm xe gắn máy',
-                              ),
-                              RadioAnswerWidget(
-                                value: 4,
-                                groupValue: state.isSelected,
-                                onChanged: (value) {
-                                  bloc.add(
-                                    SelectedAnswerEvent(
-                                      questionIndex: 0,
-                                      answerIndex: value,
-                                    ),
-                                  );
-                                },
-                                title: 'Biển cấm ô tô',
-                              ),
-                            ],
-                          ),
+                          _buildAnswerView(),
                         ],
                       ),
                     ),
@@ -158,6 +125,72 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
           );
         },
       ),
+    );
+  }
+
+  Widget _buildAnswerView() {
+    return BlocBuilder<PractiveDetailBloc, PractiveDetailState>(
+      builder: (context, state) {
+        final bloc = context.read<PractiveDetailBloc>();
+        return ListView(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            RadioAnswerWidget(
+              value: 1,
+              groupValue: state.isSelected,
+              onChanged: (value) {
+                bloc.add(
+                  SelectedAnswerEvent(
+                    questionIndex: 0,
+                    answerIndex: value,
+                  ),
+                );
+              },
+              title: 'Biển cấm người đi bộ',
+            ),
+            RadioAnswerWidget(
+              value: 2,
+              groupValue: state.isSelected,
+              onChanged: (value) {
+                bloc.add(
+                  SelectedAnswerEvent(
+                    questionIndex: 0,
+                    answerIndex: value,
+                  ),
+                );
+              },
+              title: 'Biển cấm xe thô sơ',
+            ),
+            RadioAnswerWidget(
+              value: 3,
+              groupValue: state.isSelected,
+              onChanged: (value) {
+                bloc.add(
+                  SelectedAnswerEvent(
+                    questionIndex: 0,
+                    answerIndex: value,
+                  ),
+                );
+              },
+              title: 'Biển cấm xe gắn máy',
+            ),
+            RadioAnswerWidget(
+              value: 4,
+              groupValue: state.isSelected,
+              onChanged: (value) {
+                bloc.add(
+                  SelectedAnswerEvent(
+                    questionIndex: 0,
+                    answerIndex: value,
+                  ),
+                );
+              },
+              title: 'Biển cấm ô tô',
+            ),
+          ],
+        );
+      },
     );
   }
 

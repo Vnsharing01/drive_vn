@@ -24,7 +24,7 @@ class _RadioAnswerWidgetState extends State<RadioAnswerWidget> {
     final isSelected = widget.value == widget.groupValue;
     return InkWell(
       onTap: () {
-        widget.onChanged?.call(widget.value);
+        widget.onChanged?.call(widget.groupValue);
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(
@@ -33,7 +33,7 @@ class _RadioAnswerWidgetState extends State<RadioAnswerWidget> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColor.success.withOpacity(0.1)
+              ? AppColor.success.withOpacity(0.2)
               : AppColor.background,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
