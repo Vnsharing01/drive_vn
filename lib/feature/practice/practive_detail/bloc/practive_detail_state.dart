@@ -3,22 +3,24 @@ part of 'practive_detail_bloc.dart';
 class PractiveDetailState extends Equatable {
   final int currentQuestionIndex;
   final List<QuestionModel> questions;
-  final Map<int, int> answers; // questionIndex -> answerIndex
+  final List<AnswersModel> answers; // questionIndex -> answerIndex
   final bool isLoading;
   final int isSelected;
-  
+
   const PractiveDetailState({
-    this.currentQuestionIndex = 0,
+    this.currentQuestionIndex = 1,
     this.questions = const [],
-    this.answers = const {},
+    this.answers = const [],
     this.isLoading = false,
     this.isSelected = 1,
   });
 
+  
+
   PractiveDetailState copyWith({
     int? currentQuestionIndex,
     List<QuestionModel>? questions,
-    Map<int, int>? answers,
+    List<AnswersModel>? answers,
     bool? isLoading,
     int? isSelected,
   }) {
