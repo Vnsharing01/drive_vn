@@ -29,7 +29,6 @@ class _RadioAnswerWidgetState extends State<RadioAnswerWidget> {
       borderRadius: BorderRadius.circular(8),
       child: Container(
         padding: const EdgeInsets.all(12),
-        margin: const EdgeInsets.symmetric(vertical: 4),
         width: double.infinity,
         decoration: BoxDecoration(
           color: isSelected
