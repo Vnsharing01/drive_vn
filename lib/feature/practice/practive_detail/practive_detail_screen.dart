@@ -3,6 +3,7 @@ import 'package:drivevn/core/constants/icon_path.dart';
 import 'package:drivevn/core/utils/router/router_path.dart';
 import 'package:drivevn/feature/practice/practive_detail/bloc/practive_detail_bloc.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
+import 'package:drivevn/widgets/notification_bar/notification_bar.dart';
 import 'package:drivevn/widgets/radio/radio_answer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,6 +41,8 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
       child: BlocConsumer<PractiveDetailBloc, PractiveDetailState>(
         listener: (context, state) {},
         builder: (context, state) {
+          final bloc = context.read<PractiveDetailBloc>();
+
           if (state.isLoading == false && state.questions.isEmpty) {
             return const Scaffold(
               body: Center(
@@ -77,7 +80,8 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                   _buildTimeView(context),
                   const SizedBox(height: 8),
                   LinearProgressIndicator(
-                    value: 0.5,
+                    value: (state.currentQuestionIndex + 1) /
+                        state.questions.length,
                     minHeight: 8,
                     borderRadius: BorderRadius.circular(8),
                     backgroundColor: Theme.of(context).focusColor,
@@ -127,11 +131,35 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  ButtonFill(
-                    title: 'Câu tiếp theo',
-                    color: AppColor.primary,
-                    onTap: () {},
-                  ),
+                  state.currentQuestionIndex == state.questions.length - 1
+                      ? ButtonFill(
+                          title: 'Hoàn thành',
+                          color: AppColor.error,
+                          onTap: () {
+                            if (state.isSelected <= 0) {
+                              notiWarningWidget(
+                                context,
+                                message: 'Vui lòng chọn đáp án',
+                              );
+                              return;
+                            }
+                            context.go(RouterPath.practiceFinish);
+                          },
+                        )
+                      : ButtonFill(
+                          title: 'Câu tiếp theo',
+                          color: AppColor.primary,
+                          onTap: () {
+                            if (state.isSelected <= 0) {
+                              notiWarningWidget(
+                                context,
+                                message: 'Vui lòng chọn đáp án',
+                              );
+                              return;
+                            }
+                            bloc.add(const NextQuestionEvent());
+                          },
+                        ),
                 ],
               ),
             ),
@@ -172,51 +200,57 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
   }
 
   Widget _buildTimeView(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: AppColor.topBanner,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: Theme.of(context).focusColor,
-          width: 1,
-        ),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 2,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Câu 1/25',
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.success,
-                ),
-          ),
-          Wrap(
-            children: [
-              Text(
-                '⏱',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              Text(
-                '15:00',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.error,
-                    ),
+    return BlocBuilder<PractiveDetailBloc, PractiveDetailState>(
+      builder: (context, state) {
+        final sumQuitz = state.questions.length;
+        final currentQuitz = state.currentQuestionIndex + 1;
+        return Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: AppColor.topBanner,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Theme.of(context).focusColor,
+              width: 1,
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 2,
+                offset: Offset(0, 2),
               ),
             ],
-          )
-        ],
-      ),
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Câu $currentQuitz/$sumQuitz',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.success,
+                    ),
+              ),
+              Wrap(
+                children: [
+                  Text(
+                    '⏱',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  Text(
+                    '15:00',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.error,
+                        ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

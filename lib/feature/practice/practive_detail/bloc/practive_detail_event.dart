@@ -16,3 +16,7 @@ class SelectedAnswerEvent extends PractiveDetailEvent {
     required this.answerIndex,
   });
 }
+
+class NextQuestionEvent extends PractiveDetailEvent {
+  const NextQuestionEvent();
+}

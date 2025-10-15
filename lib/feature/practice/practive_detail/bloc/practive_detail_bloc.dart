@@ -19,7 +19,6 @@ class PractiveDetailBloc
     on<SelectedAnswerEvent>((event, emit) {
       final curentQuestion = state.questions[state.currentQuestionIndex];
 
-      final List<AnswersModel> upadateAnswers = [];
       final answers = List<AnswersModel>.from(curentQuestion.answers);
 
       for (var answer in answers) {
@@ -31,17 +30,16 @@ class PractiveDetailBloc
             ),
           );
         }
-
-        upadateAnswers.add(answer);
       }
+    });
 
-      if (upadateAnswers.isNotEmpty) {
-        emit(
-          state.copyWith(
-            answers: upadateAnswers,
-          ),
-        );
-      }
+    on<NextQuestionEvent>((event, emit) {
+      emit(
+        state.copyWith(
+          currentQuestionIndex: state.currentQuestionIndex + 1,
+          isSelected: 0,
+        ),
+      );
     });
   }
 
