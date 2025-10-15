@@ -11,9 +11,8 @@ class LoadQuestionsEvent extends PractiveDetailEvent {
 
 class SelectedAnswerEvent extends PractiveDetailEvent {
   final int answerIndex;
-  final int questionIndex;
+
   const SelectedAnswerEvent({
     required this.answerIndex,
-    required this.questionIndex,
   });
 }

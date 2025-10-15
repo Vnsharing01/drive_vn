@@ -24,7 +24,7 @@ class _RadioAnswerWidgetState extends State<RadioAnswerWidget> {
     final isSelected = widget.value == widget.groupValue;
     return InkWell(
       onTap: () {
-        widget.onChanged?.call(widget.groupValue);
+        widget.onChanged?.call(widget.value);
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(

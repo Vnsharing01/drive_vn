@@ -17,12 +17,19 @@ class PractiveDetailBloc
     });
 
     on<SelectedAnswerEvent>((event, emit) {
+      final curentQuestion = state.questions[state.currentQuestionIndex];
+
       final List<AnswersModel> upadateAnswers = [];
-      final answers = List<AnswersModel>.from(state.answers);
+      final answers = List<AnswersModel>.from(curentQuestion.answers);
 
       for (var answer in answers) {
         if (answer.id == event.answerIndex) {
-          answer.copyWith(isCorrect: true);
+          answer = answer.copyWith(isCorrect: true);
+          emit(
+            state.copyWith(
+              isSelected: event.answerIndex,
+            ),
+          );
         }
 
         upadateAnswers.add(answer);
@@ -32,7 +39,6 @@ class PractiveDetailBloc
         emit(
           state.copyWith(
             answers: upadateAnswers,
-            currentQuestionIndex: event.questionIndex,
           ),
         );
       }

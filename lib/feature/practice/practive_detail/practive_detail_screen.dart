@@ -104,8 +104,8 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            state.questions[state.currentQuestionIndex]
-                                .question,
+                            state
+                                .questions[state.currentQuestionIndex].question,
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 16),
@@ -149,28 +149,23 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            final answer = state
-                .questions[state.currentQuestionIndex].answers[index];
+            final answer =
+                state.questions[state.currentQuestionIndex].answers[index];
             return RadioAnswerWidget(
-              value: state.questions[state.currentQuestionIndex].answers[index]
-                      .id ??
-                  0,
+              value: answer.id ?? 1,
               groupValue: state.isSelected,
               onChanged: (value) {
                 bloc.add(
                   SelectedAnswerEvent(
-                    questionIndex: state.currentQuestionIndex,
                     answerIndex: value,
                   ),
                 );
               },
-              title: answer.answer  ?? '',
+              title: answer.answer ?? '',
             );
           },
-          separatorBuilder: (BuildContext context, int index) =>
-              const SizedBox(height: 8),
-          itemCount:
-              state.questions[state.currentQuestionIndex].answers.length,
+          separatorBuilder: (_, int index) => const SizedBox(height: 8),
+          itemCount: state.questions[state.currentQuestionIndex].answers.length,
         );
       },
     );
