@@ -2,7 +2,7 @@ import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
 import 'package:flutter/material.dart';
 
-import 'components/training_item_widget.dart';
+import '../components/training_item_widget.dart';
 
 class TrainingScreen extends StatefulWidget {
   const TrainingScreen({super.key});

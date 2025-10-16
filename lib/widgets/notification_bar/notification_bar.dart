@@ -14,11 +14,15 @@ notiWarningWidget(BuildContext context, {String? message}) {
       ),
     ),
     type: ToastificationType.warning,
-    autoCloseDuration: const Duration(seconds: 2),
+    autoCloseDuration: const Duration(milliseconds: 1500),
     style: ToastificationStyle.flatColored,
     alignment: Alignment.topCenter,
     padding: const EdgeInsets.all(16),
     showProgressBar: false,
+    closeButtonShowType: CloseButtonShowType.none,
+    callbacks: ToastificationCallbacks(
+      onDismissed: (value) => toastification.dismiss,
+    ),
   );
 }
 
@@ -35,11 +39,14 @@ notiSuccessWidget(BuildContext context, {String? message}) {
       ),
     ),
     type: ToastificationType.success,
-    autoCloseDuration: const Duration(seconds: 2),
+    autoCloseDuration: const Duration(milliseconds: 1200),
     style: ToastificationStyle.flatColored,
     alignment: Alignment.topCenter,
     padding: const EdgeInsets.all(16),
     showProgressBar: false,
+    callbacks: ToastificationCallbacks(
+      onDismissed: (value) => toastification.dismiss,
+    ),
   );
 }
 
@@ -56,10 +63,13 @@ notiErorWidget(BuildContext context, {String? message}) {
       ),
     ),
     type: ToastificationType.error,
-    autoCloseDuration: const Duration(seconds: 2),
+    autoCloseDuration: const Duration(milliseconds: 1200),
     style: ToastificationStyle.flatColored,
     alignment: Alignment.topCenter,
     padding: const EdgeInsets.all(16),
     showProgressBar: false,
+    callbacks: ToastificationCallbacks(
+      onDismissed: (value) => toastification.dismiss,
+    ),
   );
 }

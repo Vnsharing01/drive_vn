@@ -11,7 +11,7 @@ import 'package:drivevn/feature/practice/practive_detail/practive_detail_screen.
 import 'package:drivevn/feature/practice/practive_start/practive_start_screen.dart';
 import 'package:drivevn/feature/review/review_start/review_start_screen.dart';
 import 'package:drivevn/feature/setting/setting_screen.dart';
-import 'package:drivevn/feature/training/training_screen.dart';
+import 'package:drivevn/feature/training/training/training_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
