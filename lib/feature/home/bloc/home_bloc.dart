@@ -10,10 +10,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchDataEvent>((event, emit) {
       // TODO: implement event handler
     });
-    
-    on<SwitchTabEvent>((event, emit) {
-      int index = event.index;
-      emit(state.copyWith(currentIndex: index));
-    });
   }
 }

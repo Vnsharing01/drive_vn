@@ -1,8 +1,9 @@
 import 'package:drivevn/core/utils/router/router_path.dart';
 import 'package:drivevn/feature/history/history_screen.dart';
-import 'package:drivevn/feature/home/home_page/home_page.dart';
+import 'package:drivevn/feature/main/bloc/main_bloc.dart';
+import 'package:drivevn/feature/main/main_page.dart';
 import 'package:drivevn/feature/home/bloc/home_bloc.dart';
-import 'package:drivevn/feature/home/home_screen/home_screen.dart';
+import 'package:drivevn/feature/home/home_screen.dart';
 import 'package:drivevn/feature/practice/practive_detail/bloc/practive_detail_bloc.dart';
 import 'package:drivevn/feature/practice/practive_finish/bloc/practive_finish_bloc.dart';
 import 'package:drivevn/feature/practice/practive_finish/practive_finish_screen.dart';
@@ -18,9 +19,19 @@ class AppRouter {
   final GoRouter appRouter = GoRouter(routes: [
     GoRoute(
       path: RouterPath.main,
-      builder: (context, state) => BlocProvider(
-        create: (_) => HomeBloc(),
-        child: const HomePage(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider<MainBloc>(
+            create: (context) => MainBloc(),
+          ),
+          BlocProvider<HomeBloc>(
+            create: (context) => HomeBloc(),
+          ),
+          // BlocProvider<MainBloc>(
+          //   create: (context) => MainBloc(),
+          // ),
+        ],
+        child: const MainPage(),
       ),
     ),
     GoRoute(
@@ -40,7 +51,7 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterPath.practice,
-      builder: (context, state)=> BlocProvider(
+      builder: (context, state) => BlocProvider(
         create: (_) => PractiveDetailBloc(),
         child: const PractiveDetailScreen(),
       ),

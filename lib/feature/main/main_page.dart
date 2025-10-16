@@ -1,20 +1,20 @@
 import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
-import 'package:drivevn/feature/home/bloc/home_bloc.dart';
-import 'package:drivevn/feature/home/home_screen/home_screen.dart';
+import 'package:drivevn/feature/home/home_screen.dart';
+import 'package:drivevn/feature/main/bloc/main_bloc.dart';
 import 'package:drivevn/feature/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainPageState extends State<MainPage> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const SettingScreen(),
@@ -22,9 +22,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<MainBloc, MainState>(
       builder: (context, state) {
-        final bloc = context.read<HomeBloc>();
+        final bloc = context.read<MainBloc>();
         return SafeArea(
           child: Scaffold(
             bottomNavigationBar: BottomNavigationBar(
