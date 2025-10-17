@@ -109,7 +109,7 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
                         children: [
                           Text(
                             state
-                                .questions[state.currentQuestionIndex].question,
+                                .questions[state.currentQuestionIndex].question ?? '',
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 16),
@@ -178,7 +178,7 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             final answer =
-                state.questions[state.currentQuestionIndex].answers[index];
+                state.questions[state.currentQuestionIndex].answers![index];
             return RadioAnswerWidget(
               value: answer.id ?? 1,
               groupValue: state.isSelected,
@@ -193,7 +193,7 @@ class _PractiveDetailScreenState extends State<PractiveDetailScreen> {
             );
           },
           separatorBuilder: (_, int index) => const SizedBox(height: 8),
-          itemCount: state.questions[state.currentQuestionIndex].answers.length,
+          itemCount: state.questions[state.currentQuestionIndex].answers!.length,
         );
       },
     );

@@ -19,7 +19,7 @@ class PractiveDetailBloc
     on<SelectedAnswerEvent>((event, emit) {
       final curentQuestion = state.questions[state.currentQuestionIndex];
 
-      final answers = List<AnswersModel>.from(curentQuestion.answers);
+      final answers = List<AnswersModel>.from(curentQuestion.answers ?? []);
 
       for (var answer in answers) {
         if (answer.id == event.answerIndex) {

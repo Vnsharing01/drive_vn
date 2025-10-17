@@ -1,6 +1,4 @@
 class RouterPath {
-  static const String splash = '/splash';
-
   static const String main = '/';
   static const String home = '/home';
   static const String settings = '/settings';
@@ -10,6 +8,9 @@ class RouterPath {
   static const String practiceFinish = '/practiceFinish';
 
   static const String training = '/training';
+  static const String trainingQuestions = '/trainingQuestions';
+  static const String trainingDetail = '/trainingDetail';
+
   static const String history = '/history';
 
   static const String reviewStart = '/reviewStart';

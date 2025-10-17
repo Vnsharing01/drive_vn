@@ -7,16 +7,16 @@ part 'question_model.g.dart';
 @JsonSerializable()
 @CopyWith()
 class QuestionModel {
-  final String id;
-  final String question;
-  final List<AnswersModel> answers;
-  final int correctAnswerIndex;
+  final String ?id;
+  final String ?question;
+  final List<AnswersModel> ?answers;
+  final int ?correctAnswerIndex;
 
   QuestionModel({
-    required this.id,
-    required this.question,
-    required this.answers,
-    required this.correctAnswerIndex,
+     this.id,
+     this.question,
+     this.answers,
+     this.correctAnswerIndex,
   });
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) =>

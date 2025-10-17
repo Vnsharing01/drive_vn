@@ -11,4 +11,7 @@ class AppColor {
 
   static const Color success = Color(0xFF28A745);
   static const Color error = Color(0xFFDC3545);
+
+  static const Color flatPrimaryBackground = Color(0xFFE8F5E9);
+  static const Color borderSuccess = Color(0xFF2E7D32);
 }
