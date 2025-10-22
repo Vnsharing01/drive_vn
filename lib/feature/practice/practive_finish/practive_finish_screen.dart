@@ -1,6 +1,6 @@
 import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
-import 'package:drivevn/core/utils/router/router_path.dart';
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/feature/practice/practive_finish/bloc/practive_finish_bloc.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:drivevn/widgets/button/button_outline.dart';

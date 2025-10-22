@@ -1,5 +1,5 @@
 import 'package:drivevn/core/constants/app_color.dart';
-import 'package:drivevn/core/utils/router/router_path.dart';
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

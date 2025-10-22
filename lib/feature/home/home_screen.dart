@@ -1,6 +1,6 @@
 import 'package:drivevn/core/constants/app_color.dart';
 import 'package:drivevn/core/constants/icon_path.dart';
-import 'package:drivevn/core/utils/router/router_path.dart';
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/feature/home/components/home_feature_widget.dart';
 import 'package:drivevn/feature/home/components/item_banner_widget.dart';
 import 'package:drivevn/feature/home/bloc/home_bloc.dart';
