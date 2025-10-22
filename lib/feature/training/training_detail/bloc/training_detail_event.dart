@@ -1,8 +1,21 @@
 part of 'training_detail_bloc.dart';
 
-sealed class TrainingDetailEvent extends Equatable {
+class TrainingDetailEvent {
   const TrainingDetailEvent();
+}
 
-  @override
-  List<Object> get props => [];
+class LoadQuestionsEvent extends TrainingDetailEvent {
+  const LoadQuestionsEvent();
+}
+
+class SelectedAnswerEvent extends TrainingDetailEvent {
+  final int answerIndex;
+
+  const SelectedAnswerEvent({
+    required this.answerIndex,
+  });
+}
+
+class NextQuestionEvent extends TrainingDetailEvent {
+  const NextQuestionEvent();
 }

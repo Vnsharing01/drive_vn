@@ -3,7 +3,7 @@ import 'package:drivevn/core/constants/icon_path.dart';
 import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/feature/practice/practive_detail/bloc/practive_detail_bloc.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
-import 'package:drivevn/widgets/notification_bar/notification_bar.dart';
+import 'package:drivevn/core/utils/notification_bar/notification_bar.dart';
 import 'package:drivevn/widgets/radio/radio_answer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,8 +1,10 @@
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/data/models/question_model.dart';
 import 'package:drivevn/feature/training/training_questions/bloc/training_questions_bloc.dart';
 import 'package:drivevn/feature/training/training_questions/components/questions_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class TrainingQuestionsScreen extends StatefulWidget {
   const TrainingQuestionsScreen({super.key});
@@ -54,7 +56,9 @@ class _TrainingQuestionsScreenState extends State<TrainingQuestionsScreen> {
                   final item = testQuestions[index];
                   return QuestionsButtonWidget(
                     item: item,
-                    onTap: () {},
+                    onTap: () {
+                      context.push(RouterPath.trainingDetail);
+                    },
                   );
                 },
               ),
