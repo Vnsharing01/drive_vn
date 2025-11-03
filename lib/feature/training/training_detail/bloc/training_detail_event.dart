@@ -19,3 +19,6 @@ class SelectedAnswerEvent extends TrainingDetailEvent {
 class NextQuestionEvent extends TrainingDetailEvent {
   const NextQuestionEvent();
 }
+class BackQuestionEvent extends TrainingDetailEvent {
+  const BackQuestionEvent();
+}

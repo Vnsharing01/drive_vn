@@ -95,38 +95,37 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                   const SizedBox(height: 36),
                   Row(
                     children: [
-                      Expanded(
-                        child: ButtonFill(
-                          title: 'Hoàn thành',
-                          color: AppColor.error,
-                          onTap: () {
-                            if (state.isSelected <= 0) {
-                              notiWarningWidget(
-                                context,
-                                message: 'Vui lòng chọn đáp án',
-                              );
-                              return;
-                            }
-                          },
+                      if (state.currentQuestionIndex > 0) ...[
+                        Expanded(
+                          child: ButtonFill(
+                            title: 'Câu trước',
+                            color: AppColor.primary.withOpacity(0.7),
+                            onTap: () {
+                              bloc.add(const BackQuestionEvent());
+                            },
+                          ),
                         ),
-                      ),
+                      ],
                       const SizedBox(width: 16),
-                      Expanded(
-                        child: ButtonFill(
-                          title: 'Câu tiếp theo',
-                          color: AppColor.primary,
-                          onTap: () {
-                            if (state.isSelected <= 0) {
-                              notiWarningWidget(
-                                context,
-                                message: 'Vui lòng chọn đáp án',
-                              );
-                              return;
-                            }
-                            bloc.add(const NextQuestionEvent());
-                          },
+                      if (state.currentQuestionIndex <
+                          state.questions.length - 1) ...[
+                        Expanded(
+                          child: ButtonFill(
+                            title: 'Câu tiếp theo',
+                            color: AppColor.primary,
+                            onTap: () {
+                              if (state.isSelected <= 0) {
+                                notiWarningWidget(
+                                  context,
+                                  message: 'Vui lòng chọn đáp án',
+                                );
+                                return;
+                              }
+                              bloc.add(const NextQuestionEvent());
+                            },
+                          ),
                         ),
-                      ),
+                      ]
                     ],
                   )
                 ],
