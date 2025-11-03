@@ -1,7 +1,9 @@
 import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/widgets/button/button_fill.dart';
 import 'package:drivevn/widgets/button/button_outline.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ReviewScreen extends StatefulWidget {
   const ReviewScreen({super.key});
@@ -77,7 +79,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
               ButtonFill(
                 title: 'Bắt đầu ôn lại',
                 color: AppColor.secondary,
-                onTap: () {},
+                onTap: () => context.go(RouterPath.review),
               ),
               const SizedBox(height: 8),
               ButtonOutline(

@@ -5,12 +5,11 @@ import 'package:drivevn/data/models/question_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'training_detail_event.dart';
-part 'training_detail_state.dart';
+part 'review_detail_event.dart';
+part 'review_detail_state.dart';
 
-class TrainingDetailBloc
-    extends Bloc<TrainingDetailEvent, TrainingDetailState> {
-  TrainingDetailBloc() : super(const TrainingDetailState()) {
+class ReviewDetailBloc extends Bloc<ReviewDetailEvent, ReviewDetailState> {
+  ReviewDetailBloc() : super(const ReviewDetailState()) {
     on<LoadQuestionsEvent>((event, emit) {
       if (state.questions.isEmpty) {
         emit(state.copyWith(

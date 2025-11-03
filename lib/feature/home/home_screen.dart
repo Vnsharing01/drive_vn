@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subTitle: 'Câu đã sai',
                         icon: IconPath.onLai,
                         onTap: () {
-                          context.push(RouterPath.review);
+                          context.push(RouterPath.reviewStart);
                         },
                       ),
                       HomeFeatureWidget(
