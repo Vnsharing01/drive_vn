@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.1
+  sdk: '>=3.7.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,14 +43,14 @@ dependencies:
   supabase_flutter: ^2.8.4
   app_links: 6.3.2
   equatable: ^2.0.7
-  copy_with_extension: ^5.0.4
+  copy_with_extension: ^6.0.1
   json_annotation: ^4.9.0
   custom_refresh_indicator: ^4.0.1
   shared_preferences: ^2.5.3
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   path_provider: ^2.1.5
   toastification: ^2.0.0
+  isar_community: ^3.2.0-dev.4
+  isar_community_flutter_libs: ^3.2.0-dev.4
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +64,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   json_serializable: ^6.9.0
   build_runner: ^2.4.13
-  copy_with_extension_gen: ^5.0.4
+  copy_with_extension_gen: ^6.0.1
+  isar_community_generator: ^3.2.0-dev.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
