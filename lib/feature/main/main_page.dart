@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
                   icon: SvgPicture.asset(
                     IconPath.home,
                     width: 24,
-                    height: 24,
+                    height: 24, 
                   ),
                   activeIcon: SvgPicture.asset(
                     IconPath.home,

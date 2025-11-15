@@ -12,6 +12,7 @@ import 'package:drivevn/feature/practice/practive_start/practive_start_screen.da
 import 'package:drivevn/feature/review/review_detail/bloc/review_detail_bloc.dart';
 import 'package:drivevn/feature/review/review_detail/review_detail_screen.dart';
 import 'package:drivevn/feature/review/review_start/review_start_screen.dart';
+import 'package:drivevn/feature/setting/bloc/setting_bloc.dart';
 import 'package:drivevn/feature/setting/setting_screen.dart';
 import 'package:drivevn/feature/training/training/bloc/training_bloc.dart';
 import 'package:drivevn/feature/training/training/training_screen.dart';
@@ -33,6 +34,9 @@ class AppRouter {
           ),
           BlocProvider<HomeBloc>(
             create: (context) => HomeBloc(),
+          ),
+          BlocProvider<SettingBloc>(
+            create: (context) => SettingBloc(),
           ),
         ],
         child: const MainPage(),
@@ -105,7 +109,10 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterPath.settings,
-      builder: (context, state) => const SettingScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (_) => SettingBloc(),
+        child: const SettingScreen(),
+      ),
     ),
   ]);
 }
