@@ -1,9 +1,11 @@
 import 'package:drivevn/core/constants/app_color.dart';
+import 'package:drivevn/core/router/router_path.dart';
 import 'package:drivevn/feature/setting/bloc/setting_bloc.dart';
 import 'package:drivevn/feature/setting/components/setting_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -67,7 +69,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           title: 'Hướng dẫn sử dụng',
                           subTitle: 'Cách sử dụng ứng dụng',
                           onTap: () {
-                            // TODO: Điều hướng đến màn hình hướng dẫn
+                            context.push(RouterPath.tutorial);
                           },
                         ),
                         const SizedBox(height: 8),
@@ -77,7 +79,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           title: 'Về DriveVN',
                           subTitle: 'Xem thông tin về ứng dụng',
                           onTap: () {
-                            // TODO: Hiển thị dialog hoặc điều hướng đến màn hình thông tin
+                            context.push(RouterPath.about);
                           },
                         ),
                         const SizedBox(height: 8),

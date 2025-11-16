@@ -16,4 +16,7 @@ class RouterPath {
   static const String reviewStart = '/reviewStart';
   static const String review = '/review';
   static const String reviewFinish = '/reviewFinish';
+
+  static const String tutorial = '/tutorial';
+  static const String about = '/about';
 }
