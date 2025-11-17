@@ -69,7 +69,9 @@ class _SettingScreenState extends State<SettingScreen> {
                           title: 'Hướng dẫn sử dụng',
                           subTitle: 'Cách sử dụng ứng dụng',
                           onTap: () {
-                            context.push(RouterPath.tutorial);
+                            context.push(
+                              RouterPath.tutorial,
+                            );
                           },
                         ),
                         const SizedBox(height: 8),
