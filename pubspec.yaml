@@ -51,6 +51,7 @@ dependencies:
   toastification: ^2.0.0
   isar_community: ^3.2.0-dev.4
   isar_community_flutter_libs: ^3.2.0-dev.4
+  get_it: ^9.0.5
 
 dev_dependencies:
   flutter_test:
