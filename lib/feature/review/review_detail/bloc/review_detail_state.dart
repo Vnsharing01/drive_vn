@@ -4,7 +4,7 @@ class ReviewDetailState extends Equatable {
   final LoadingStatus isLoading;
   final int isSelected;
   final int currentQuestionIndex;
-  final List<QuestionModel> questions;
+  final List<QuestionCollection> questions;
 
   const ReviewDetailState({
     this.isLoading = LoadingStatus.inital,
@@ -17,7 +17,7 @@ class ReviewDetailState extends Equatable {
     LoadingStatus? isLoading,
     int? isSelected,
     int? currentQuestionIndex,
-    List<QuestionModel>? questions,
+    List<QuestionCollection>? questions,
   }) {
     return ReviewDetailState(
       isLoading: isLoading ?? this.isLoading,

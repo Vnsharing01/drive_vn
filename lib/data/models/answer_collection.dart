@@ -13,4 +13,10 @@ class AnswerCollection {
 
   @Backlink(to: 'answers')
   final question = IsarLink<QuestionCollection>();
+
+  AnswerCollection copyWith({String? text, bool? correct}) {
+    return AnswerCollection()
+      ..text = text ?? this.text
+      ..correct = correct ?? this.correct;
+  }
 }

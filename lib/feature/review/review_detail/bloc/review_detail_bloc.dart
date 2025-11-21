@@ -1,15 +1,17 @@
+import 'package:drivevn/core/constants/get_it.dart';
 import 'package:drivevn/core/enums/loading_status.dart';
-import 'package:drivevn/data/locals/mock_quitzs_db.dart';
-import 'package:drivevn/data/models/answers_model.dart';
-import 'package:drivevn/data/models/question_model.dart';
+import 'package:drivevn/data/models/answer_collection.dart';
+import 'package:drivevn/data/models/question_collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:isar_community/isar.dart';
 
 part 'review_detail_event.dart';
 part 'review_detail_state.dart';
 
 class ReviewDetailBloc extends Bloc<ReviewDetailEvent, ReviewDetailState> {
   ReviewDetailBloc() : super(const ReviewDetailState()) {
+    final questions = isarInstance.questionCollections.where().findAllSync();
     on<LoadQuestionsEvent>((event, emit) {
       if (state.questions.isEmpty) {
         emit(state.copyWith(
@@ -26,11 +28,10 @@ class ReviewDetailBloc extends Bloc<ReviewDetailEvent, ReviewDetailState> {
     on<SelectedAnswerEvent>((event, emit) {
       final curentQuestion = state.questions[state.currentQuestionIndex];
 
-      final answers = List<AnswersModel>.from(curentQuestion.answers ?? []);
+      final answers = List<AnswerCollection>.from(curentQuestion.answers.toList());
 
       for (var answer in answers) {
         if (answer.id == event.answerIndex) {
-          answer = answer.copyWith(isCorrect: true);
           emit(
             state.copyWith(
               isSelected: event.answerIndex,

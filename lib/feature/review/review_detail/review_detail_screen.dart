@@ -38,10 +38,7 @@ class _ReviewDetailScreenState extends State<ReviewDetailScreen> {
         appBar: AppBar(
           title: const Text(
             "Ôn Tập",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -54,16 +51,11 @@ class _ReviewDetailScreenState extends State<ReviewDetailScreen> {
             final bloc = context.read<ReviewDetailBloc>();
             if (state.isLoading.isLoading && state.questions.isEmpty) {
               return const Scaffold(
-                body: Center(
-                  child: CircularProgressIndicator(),
-                ),
+                body: Center(child: CircularProgressIndicator()),
               );
             }
             return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 24,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
               child: Column(
                 children: [
                   Card.outlined(
@@ -75,9 +67,9 @@ class _ReviewDetailScreenState extends State<ReviewDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            state.questions[state.currentQuestionIndex]
-                                    .question ??
-                                '',
+                            state
+                                .questions[state.currentQuestionIndex]
+                                .question,
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 16),
@@ -131,9 +123,9 @@ class _ReviewDetailScreenState extends State<ReviewDetailScreen> {
                             },
                           ),
                         ),
-                      ]
+                      ],
                     ],
-                  )
+                  ),
                 ],
               ),
             );
@@ -151,24 +143,20 @@ class _ReviewDetailScreenState extends State<ReviewDetailScreen> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            final answer =
-                state.questions[state.currentQuestionIndex].answers![index];
+            final answer = state.questions[state.currentQuestionIndex].answers
+                .toList()
+                .elementAt(index);
             return RadioAnswerWidget(
-              value: answer.id ?? 1,
+              value: answer.id,
               groupValue: state.isSelected,
               onChanged: (value) {
-                bloc.add(
-                  SelectedAnswerEvent(
-                    answerIndex: value,
-                  ),
-                );
+                bloc.add(SelectedAnswerEvent(answerIndex: value));
               },
-              title: answer.answer ?? '',
+              title: answer.text,
             );
           },
           separatorBuilder: (_, int index) => const SizedBox(height: 8),
-          itemCount:
-              state.questions[state.currentQuestionIndex].answers!.length,
+          itemCount: state.questions[state.currentQuestionIndex].answers.length,
         );
       },
     );
