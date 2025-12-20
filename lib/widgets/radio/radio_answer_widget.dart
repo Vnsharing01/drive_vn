@@ -22,30 +22,35 @@ class _RadioAnswerWidgetState extends State<RadioAnswerWidget> {
   @override
   Widget build(BuildContext context) {
     final isSelected = widget.value == widget.groupValue;
-    return InkWell(
-      onTap: () {
-        widget.onChanged?.call(widget.value);
-      },
-      borderRadius: BorderRadius.circular(8),
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: isSelected
-              ? AppColor.success.withOpacity(0.2)
-              : AppColor.background,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: isSelected ? AppColor.success : Theme.of(context).focusColor,
-            width: 1.5,
+    return IgnorePointer(
+      ignoring: isSelected,
+      child: InkWell(
+        onTap: () {
+          widget.onChanged?.call(widget.value);
+        },
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color:
+                isSelected
+                    ? AppColor.success.withOpacity(0.2)
+                    : AppColor.background,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color:
+                  isSelected ? AppColor.success : Theme.of(context).focusColor,
+              width: 1.5,
+            ),
           ),
-        ),
-        child: Text(
-          widget.title,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontSize: 16,
-                color: AppColor.textPrimary,
-              ),
+          child: Text(
+            widget.title,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              fontSize: 16,
+              color: AppColor.textPrimary,
+            ),
+          ),
         ),
       ),
     );
